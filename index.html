@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Placement Preparation System</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header>
+    <h1>Placement Preparation System</h1>
+    <p>Your journey from preparation to placement.</p>
+  </header>
+
+  <main>
+    <section class="welcome">
+      <h2>Welcome, Student!</h2>
+      <p>Manage your job applications and prepare for your dream career.</p>
+    </section>
+
+    <section class="dashboard">
+      <article class="card">
+        <h3>Job Applications</h3>
+        <p id="applications">0</p>
+      </article>
+
+      <article class="card">
+        <h3>Skills Tracked</h3>
+        <p id="skills">0</p>
+      </article>
+
+      <article class="card">
+        <h3>Interviews</h3>
+        <p id="interviews">0</p>
+      </article>
+      
+<article class="card">
+  <h3>Average Preparation Progress</h3>
+  <p id="averageProgress">0%</p>
+</article>
+
+    </section>
+
+    <section class="welcome">
+      <h2>Project Status</h2>
+      <p id="status">Your placement journey starts here!</p>
+    </section>
+  </main>
+
+  <footer>
+    
+<section class="welcome">
+  <h2>Job Application Tracker</h2>
+
+  <form id="applicationForm">
+    <p>
+      <label for="company">Company Name</label><br>
+      <input id="company" type="text"
+             placeholder="e.g. TCS" required>
+    </p>
+
+    <p>
+      <label for="role">Job Role</label><br>
+      <input id="role" type="text"
+             placeholder="e.g. Software Developer" required>
+    </p>
+
+    <p>
+      <label for="appStatus">Application Status</label><br>
+      <select id="appStatus">
+        <option>Applied</option>
+        <option>Assessment</option>
+        <option>Interview</option>
+        <option>Selected</option>
+        <option>Rejected</option>
+      </select>
+    </p>
+
+<p>
+  <label for="appDeadline">Application Deadline</label><br>
+  <input type="date" id="appDeadline">
+</p>
+
+    <button type="submit">Add Application</button>
+  </form>
+
+  
+<h3>My Applications</h3>
+
+<p>
+  <label for="applicationSearch">Search Company or Job Role</label><br>
+  <input
+    type="text"
+    id="applicationSearch"
+    placeholder="Type a company name or job role..."
+  >
+</p>
+
+<p>
+  <label for="applicationFilter">Filter by Status</label><br>
+  <select id="applicationFilter">
+    <option value="All">All Applications</option>
+    <option value="Applied">Applied</option>
+    <option value="Assessment">Assessment</option>
+    <option value="Interview">Interview</option>
+    <option value="Selected">Selected</option>
+    <option value="Rejected">Rejected</option>
+  </select>
+</p>
+
+<div id="applicationList"></div>
+
+</section>
+
+<section class="welcome">
+  <h2>Placement Eligibility Checker</h2>
+  <p>Check whether you meet a company's placement criteria.</p>
+
+  <form id="eligibilityForm">
+    <p>
+      <label for="percentage">Your Academic Percentage</label><br>
+      <input
+        type="number"
+        id="percentage"
+        min="0"
+        max="100"
+        step="0.01"
+        placeholder="e.g. 75"
+        required
+      >
+    </p>
+
+    <p>
+      <label for="minPercentage">Company's Minimum Percentage</label><br>
+      <input
+        type="number"
+        id="minPercentage"
+        min="0"
+        max="100"
+        step="0.01"
+        placeholder="e.g. 60"
+        required
+      >
+    </p>
+
+    <p>
+      <label for="backlogs">Your Current Active Backlogs</label><br>
+      <input
+        type="number"
+        id="backlogs"
+        min="0"
+        step="1"
+        placeholder="e.g. 0"
+        required
+      >
+    </p>
+
+    <p>
+      <label for="maxBacklogs">Company's Maximum Allowed Active Backlogs</label><br>
+      <input
+        type="number"
+        id="maxBacklogs"
+        min="0"
+        step="1"
+        placeholder="e.g. 0"
+        required
+      >
+    </p>
+
+    <button type="submit">Check Eligibility</button>
+  </form>
+
+  <h3 id="eligibilityResult" aria-live="polite"></h3>
+</section>
+
+<section class="welcome">
+  <h2>Preparation Progress Tracker</h2>
+  <p>Track your placement preparation subjects.</p>
+
+  <form id="skillForm">
+    <p>
+      <label for="skillName">Subject / Skill</label><br>
+      <select id="skillName" required>
+        <option value="Java">Java</option>
+        <option value="DSA">Data Structures & Algorithms</option>
+        <option value="Aptitude">Aptitude</option>
+        <option value="Communication">Communication Skills</option>
+        <option value="Digital Electronics">Digital Electronics</option>
+      </select>
+    </p>
+
+    <p>
+      <label for="skillProgress">Completion Percentage</label><br>
+      <input
+        type="number"
+        id="skillProgress"
+        min="0"
+        max="100"
+        step="1"
+        placeholder="e.g. 25"
+        required
+      >
+    </p>
+
+    <button type="submit">Save Progress</button>
+  </form>
+
+  <h3>My Preparation</h3>
+  <div id="skillList"></div>
+</section>
+
+<section class="welcome">
+  <h2>Interview Tracker</h2>
+  <p>Record your interview schedules and results.</p>
+
+  <form id="interviewForm">
+    <p>
+      <label for="interviewCompany">Company Name</label><br>
+      <input
+        type="text"
+        id="interviewCompany"
+        placeholder="e.g. TCS"
+        required
+      >
+    </p>
+
+    <p>
+      <label for="interviewDate">Interview Date</label><br>
+      <input
+        type="date"
+        id="interviewDate"
+        required
+      >
+    </p>
+
+    <p>
+      <label for="interviewStatus">Interview Status</label><br>
+      <select id="interviewStatus">
+        <option>Scheduled</option>
+        <option>Completed</option>
+        <option>Selected</option>
+        <option>Rejected</option>
+      </select>
+    </p>
+
+    <button type="submit">Add Interview</button>
+  </form>
+
+  <h3>My Interviews</h3>
+  <div id="interviewList"></div>
+</section>
+
+
+<section class="welcome">
+  <h2>Resume Management</h2>
+  <p>Upload and manage your resume PDF files.</p>
+
+  <form id="resumeForm">
+    <p>
+      <label for="resumeTitle">Resume Name</label><br>
+      <input
+        type="text"
+        id="resumeTitle"
+        placeholder="e.g. Software Developer Resume"
+        required
+      >
+    </p>
+
+    <p>
+      <label for="resumeFile">Choose Resume (PDF)</label><br>
+      <input
+        type="file"
+        id="resumeFile"
+        accept=".pdf,application/pdf"
+        required
+      >
+    </p>
+
+    <button type="submit">Upload Resume</button>
+  </form>
+
+  <h3>My Uploaded Resumes</h3>
+  <div id="resumeList"></div>
+  <p id="resumeMessage" aria-live="polite"></p>
+</section>
+
+
+
+    <p>Placement Preparation &amp; Application Management System</p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
