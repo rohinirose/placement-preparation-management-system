@@ -504,3 +504,30 @@ resumeForm.addEventListener("submit", function (event) {
 
   reader.readAsArrayBuffer(file);
 });
+
+const themeToggle = document.getElementById("themeToggle");
+
+if (localStorage.getItem("placementTheme") === "light") {
+  document.body.classList.add("light-theme");
+}
+
+function updateThemeButton() {
+  const isLight = document.body.classList.contains("light-theme");
+
+  themeToggle.textContent = isLight
+    ? "🌙 Switch to Dark Mode"
+    : "☀️ Switch to Light Mode";
+}
+
+updateThemeButton();
+
+themeToggle.addEventListener("click", function () {
+  document.body.classList.toggle("light-theme");
+
+  const theme = document.body.classList.contains("light-theme")
+    ? "light"
+    : "dark";
+
+  localStorage.setItem("placementTheme", theme);
+  updateThemeButton();
+});

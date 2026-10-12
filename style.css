@@ -566,3 +566,112 @@ footer {
     transition: none !important;
   }
 }
+
+/* Theme colours */
+:root {
+  --page-bg: #08080d;
+  --card-bg: #15151f;
+  --text-color: #f5f5ff;
+  --muted-color: #a6a6bd;
+  --border-color: #303044;
+  --input-bg: #20202c;
+}
+
+body.light-theme {
+  --page-bg: #f4f6fb;
+  --card-bg: #ffffff;
+  --text-color: #1e293b;
+  --muted-color: #64748b;
+  --border-color: #dbe2ea;
+  --input-bg: #ffffff;
+}
+
+body {
+  background: var(--page-bg);
+  color: var(--text-color);
+  transition: background 0.3s, color 0.3s;
+}
+
+.welcome,
+.card {
+  background: var(--card-bg);
+  color: var(--text-color);
+  border-color: var(--border-color);
+}
+
+h1, h2, h3, label {
+  color: var(--text-color);
+}
+
+p, footer {
+  color: var(--muted-color);
+}
+
+input, select, textarea {
+  background: var(--input-bg);
+  color: var(--text-color);
+  border: 1px solid var(--border-color);
+}
+
+#themeToggle {
+  margin-top: 16px;
+  padding: 10px 16px;
+  border: 1px solid #8b5cf6;
+  border-radius: 10px;
+  background: #7c3aed;
+  color: white;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+/* FIX: Make all text readable in Light Mode */
+
+body.light-theme {
+  color: #1e293b;
+}
+
+body.light-theme h1,
+body.light-theme h2,
+body.light-theme h3,
+body.light-theme h4,
+body.light-theme strong,
+body.light-theme label {
+  color: #1e293b;
+}
+
+body.light-theme p,
+body.light-theme li,
+body.light-theme span {
+  color: #475569;
+}
+
+body.light-theme .welcome,
+body.light-theme .card,
+body.light-theme section,
+body.light-theme article {
+  color: #1e293b;
+}
+
+body.light-theme .welcome h2,
+body.light-theme .card h3,
+body.light-theme .card p {
+  color: #1e293b;
+}
+
+body.light-theme input,
+body.light-theme select,
+body.light-theme textarea {
+  background: #ffffff;
+  color: #1e293b;
+  border-color: #cbd5e1;
+}
+
+body.light-theme input::placeholder,
+body.light-theme textarea::placeholder {
+  color: #64748b;
+  opacity: 1;
+}
+
+body.light-theme footer {
+  color: #475569;
+}
